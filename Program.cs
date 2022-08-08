@@ -14,8 +14,7 @@ using System.Threading.Tasks;
 namespace _3_2_08
 {
     internal class Program
-    {
-        // Базовая функция.
+    {        
         static string[] StringToWords(string myString)
         {
             char[] sep = { ' ', '.'};
