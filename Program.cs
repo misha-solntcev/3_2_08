@@ -14,9 +14,12 @@ using System.Threading.Tasks;
 namespace _3_2_08
 {
     internal class Program
-    {
-        // Базовая функция.
+    {        
+<<<<<<< HEAD
+        static string[] StringToWords(ref string myString)
+=======
         static string[] StringToWords(string myString)
+>>>>>>> 41289bc (Финиш.)
         {
             char[] sep = { ' ', '.'};
             string[] myWords = myString.Split(sep, StringSplitOptions.RemoveEmptyEntries);
@@ -24,7 +27,7 @@ namespace _3_2_08
         }
         static string IfPalindrom(string[] myWords)
         {
-            string newString = "";
+            string myString = "";
             for (int i = 0; i < myWords.Length; i++)
             {               
                 bool flag = true;
@@ -37,15 +40,15 @@ namespace _3_2_08
                     }
                 }
                 if (flag == true)
-                    newString += myWords[i] + " ";
+                    myString += myWords[i] + " ";
             }
-            return newString;            
+            return myString;            
         }
         static void Main(string[] args)
         {
             string myString = "ABCBA маfggfам vfvffdas маам";
-            string newString = IfPalindrom(StringToWords(myString));
-            Console.WriteLine(newString);
+            string newString = IfPalindrom(StringToWords(ref myString));
+            Console.WriteLine(newString);            
             Console.ReadKey();
         }
     }
