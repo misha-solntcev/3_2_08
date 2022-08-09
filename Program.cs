@@ -15,19 +15,18 @@ namespace _3_2_08
 {
     internal class Program
     {        
-<<<<<<< HEAD
-        static string[] StringToWords(ref string myString)
-=======
         static string[] StringToWords(string myString)
->>>>>>> 41289bc (Финиш.)
+            // Функция разбивает строку на массив слов.
         {
             char[] sep = { ' ', '.'};
             string[] myWords = myString.Split(sep, StringSplitOptions.RemoveEmptyEntries);
             return myWords;
         }
         static string IfPalindrom(string[] myWords)
+        // Функция проверяет каждое слово является ли оно палиндромом
+        // и возвращет новую строку из слов палиндромов.
         {
-            string myString = "";
+            string newString = "";
             for (int i = 0; i < myWords.Length; i++)
             {               
                 bool flag = true;
@@ -40,15 +39,39 @@ namespace _3_2_08
                     }
                 }
                 if (flag == true)
-                    myString += myWords[i] + " ";
+                    newString += myWords[i] + " ";
             }
-            return myString;            
+            return newString;            
         }
+
+        static void FuncRef(ref string myString)
+            // Функция выполняет предыдущие две функции используя входно-выходной параметр ref.
+        {
+            myString = IfPalindrom(StringToWords(myString));
+        }
+
+        static void FuncOut(string myString, out string newString)
+        {
+            // Функция выполняет предыдущие две функции используя выходной параметр out.
+            newString = IfPalindrom(StringToWords(myString));            
+        }
+
         static void Main(string[] args)
+            // Главная функция. вывод с помощью ref и out.
         {
             string myString = "ABCBA маfggfам vfvffdas маам";
-            string newString = IfPalindrom(StringToWords(ref myString));
-            Console.WriteLine(newString);            
+            Console.WriteLine(myString);
+            FuncRef(ref myString);
+            Console.WriteLine(myString);
+
+            Console.WriteLine("--------------");
+
+            myString = "ABCBA маfggfам vfvffdas маам";
+            string newString = "";
+            Console.WriteLine(myString);
+            FuncOut(myString, out newString);
+            Console.WriteLine(newString);
+
             Console.ReadKey();
         }
     }
