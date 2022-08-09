@@ -66,6 +66,7 @@ namespace _3_2_08
 
             Console.WriteLine("--------------");
 
+
             myString = "ABCBA маfggfам vfvffdas маам";
             string newString = "";
             Console.WriteLine(myString);
