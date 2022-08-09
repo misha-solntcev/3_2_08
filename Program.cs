@@ -57,7 +57,7 @@ namespace _3_2_08
         }
 
         static void Main(string[] args)
-            // Главная функция вывод с помощью ref и out.
+            // Главная функция. вывод с помощью ref и out.
         {
             string myString = "ABCBA маfggfам vfvffdas маам";
             Console.WriteLine(myString);
