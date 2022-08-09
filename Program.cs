@@ -16,12 +16,15 @@ namespace _3_2_08
     internal class Program
     {        
         static string[] StringToWords(string myString)
+            // Функция разбивает строку на массив слов.
         {
             char[] sep = { ' ', '.'};
             string[] myWords = myString.Split(sep, StringSplitOptions.RemoveEmptyEntries);
             return myWords;
         }
         static string IfPalindrom(string[] myWords)
+        // Функция проверяет каждое слово является ли оно палиндромом
+        // и возвращет новую строку из слов палиндромов.
         {
             string newString = "";
             for (int i = 0; i < myWords.Length; i++)
@@ -41,16 +44,34 @@ namespace _3_2_08
             return newString;            
         }
 
-        static string Func(string myString)
+        static void FuncRef(ref string myString)
+            // Функция выполняет предыдущие две функции используя входно-выходной параметр ref.
         {
-            string result = IfPalindrom(StringToWords(myString));
-            return result;
+            myString = IfPalindrom(StringToWords(myString));
+        }
+
+        static void FuncOut(string myString, out string newString)
+        {
+            // Функция выполняет предыдущие две функции используя выходной параметр out.
+            newString = IfPalindrom(StringToWords(myString));            
         }
 
         static void Main(string[] args)
+            // Главная функция вывод с помощью ref и out.
         {
             string myString = "ABCBA маfggfам vfvffdas маам";
-            Console.WriteLine(Func(myString));
+            Console.WriteLine(myString);
+            FuncRef(ref myString);
+            Console.WriteLine(myString);
+
+            Console.WriteLine("--------------");
+
+            myString = "ABCBA маfggfам vfvffdas маам";
+            string newString = "";
+            Console.WriteLine(myString);
+            FuncOut(myString, out newString);
+            Console.WriteLine(newString);
+
             Console.ReadKey();
         }
     }
