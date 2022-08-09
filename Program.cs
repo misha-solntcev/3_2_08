@@ -15,11 +15,7 @@ namespace _3_2_08
 {
     internal class Program
     {        
-<<<<<<< HEAD
-        static string[] StringToWords(ref string myString)
-=======
         static string[] StringToWords(string myString)
->>>>>>> 41289bc (Финиш.)
         {
             char[] sep = { ' ', '.'};
             string[] myWords = myString.Split(sep, StringSplitOptions.RemoveEmptyEntries);
@@ -27,7 +23,7 @@ namespace _3_2_08
         }
         static string IfPalindrom(string[] myWords)
         {
-            string myString = "";
+            string newString = "";
             for (int i = 0; i < myWords.Length; i++)
             {               
                 bool flag = true;
@@ -40,15 +36,21 @@ namespace _3_2_08
                     }
                 }
                 if (flag == true)
-                    myString += myWords[i] + " ";
+                    newString += myWords[i] + " ";
             }
-            return myString;            
+            return newString;            
         }
+
+        static string Func(string myString)
+        {
+            string result = IfPalindrom(StringToWords(myString));
+            return result;
+        }
+
         static void Main(string[] args)
         {
             string myString = "ABCBA маfggfам vfvffdas маам";
-            string newString = IfPalindrom(StringToWords(ref myString));
-            Console.WriteLine(newString);            
+            Console.WriteLine(Func(myString));
             Console.ReadKey();
         }
     }
